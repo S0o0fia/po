@@ -1,0 +1,27 @@
+[
+  {"id" : 1 , "name" : "Faculty of Engineering"} ,
+  {"id" : 2 , "name" : "Faculty of medicine"} ,
+  {"id" : 4 , "name" : "faculty of Pharmacy" } ,
+  {"id" : 5 , "name" : "faculty of Agriculture"} ,
+  {"id" : 6 , "name" : "Faculty of Science"} ,
+  {"id" : 7 , "name" : "Faculty of Economics and Political Science"} ,
+  {"id" : 8 , "name" : "Faculty of Media" } ,
+  {"id" : 9 , "name" : "Faculty of Archaeology"} ,
+  {"id" : 10 , "name" : "Faculty of Literature"} ,
+  {"id" : 11, "name" : "Commerce Faculty"} ,
+  {"id" : 12 , "name" : "Faculty education quality" } ,
+  {"id" : 13 , "name" : "Faculty of Nursing" } ,
+  {"id" : 14, "name" :  "Faculty of Law"} ,
+  {"id" : 15, "name" :  "Faculty of Physiotherapy"} ,
+  {"id" : 16, "name" : "Faculty of Dentistry" } ,
+  {"id" : 17, "name" :  "Faculty of Veterinary Medicine"} ,
+  {"id" : 18, "name" : "Faculty of Dar Al Uloom" } ,
+  {"id" : 19, "name" : "Faculty of Dar Al Uloom"} ,
+  {"id" : 20, "name" : "Faculty of Regional and Urban Planning"} ,
+  {"id" :21 , "name" :  "Faculty of Computer and Information System"},
+  {"id" :22 , "name" :  "Faculty of Fine Arts"},
+  {"id" :22 , "name" :  "Faculty of Toursim"},
+  {"id" : 26, "name" :  "open education center"} ,
+  {"id" : 27, "name" :  "Cairo University Center for Arabic Language and Culture"}
+
+]

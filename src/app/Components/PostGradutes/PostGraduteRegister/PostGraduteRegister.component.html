@@ -1,0 +1,386 @@
+
+<body>
+  <div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left" @slideLeft>
+            <img src="assets/images/PostGraduteHat.png" class="animatedimg"/>
+            <h3>{{'Welcome'|translate}}</h3>
+            <p>{{'You Can Register for PostGradutes Program Now'|translate}}!</p>
+            <img src="assets/images/logo.png" width="100" height="150" />
+            <br/>
+            <br/>
+            <button mat-mini-fab color="primary" aria-label="Example icon button with a heart icon" [routerLink]="['/PostGraduteLogin']">
+              <mat-icon>keyboard_arrow_left</mat-icon>
+            </button>
+        </div>
+        <div class="col-md-9 register-right" @slideRight>
+          <form class="example-form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+            <mat-tab-group  mat-align-tabs="end" [selectedIndex]="selectedIndex">
+              <!--General Information-->
+              <mat-tab>
+                <ng-template mat-tab-label>
+                    {{'General Information'|translate}}  &nbsp;
+                     <mat-icon class="example-tab-icon">person_pin</mat-icon>
+                </ng-template>
+
+                    <div  class="flex-container" fxLayout="row" fxLayoutAlign="wrap" fxLayout.xs="column">
+                        <div fxLayout="column">
+                                   <!--Arabic FullName-->
+                           <div fxLayout="row wrap" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                              <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+                                 <mat-form-field class="full-wid mrgn-b-lg">
+                                       <input matInput name="namear" formControlName="namear"
+                                       placeholder="{{'Arabic FullName'|translate}}" type="text" required>
+                                 </mat-form-field>
+                              </div>
+                           </div>
+
+                             <!--English FullName-->
+                             <div fxLayout="row wrap" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                              <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+                                 <mat-form-field class="full-wid mrgn-b-lg">
+                                       <input matInput name="nameen" formControlName="nameen"
+                                       placeholder="{{'English FullName'|translate}}" type="text" required>
+                                 </mat-form-field>
+                              </div>
+                           </div>
+
+                            <!--Email-->
+                          <div fxLayout="row wrap" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                            <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+                               <mat-form-field class="full-wid mrgn-b-lg">
+                                           <input matInput name="email" formControlName="email"
+                                           placeholder="{{'Email'|translate}}" type="email" required>
+                                     </mat-form-field>
+                            </div>
+                         </div>
+
+
+                           <!--Password-->
+                           <div fxLayout="row wrap" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                            <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+                               <mat-form-field class="full-wid mrgn-b-lg">
+                                           <input matInput name="password" formControlName="password"
+                                           placeholder="{{'Password'|translate}}" type="password" required>
+                                     </mat-form-field>
+                            </div>
+                         </div>
+
+                              <!--SSD Number-->
+                              <div fxLayout="row wrap" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                                <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+                                   <mat-form-field class="full-wid mrgn-b-lg">
+                                         <input matInput name="ssd" formControlName="ssd"
+                                         placeholder="{{'SSD Number' | translate}}" type="text" required>
+                                   </mat-form-field>
+                                </div>
+                             </div>
+
+                               <!--SSD Issuer-->
+                               <div fxLayout="row wrap" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                                <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+                                  <mat-form-field>
+                                    <mat-label>{{'Choose SSD Issuer'|translate}}</mat-label>
+                                    <mat-select name="issuerSSD" formControlName="issuerSSD">
+                                      <div *ngFor="let item of EgyptGovernate">
+                                      <mat-option value="{{item.id}}">{{item.name | translate}}</mat-option>
+                                    </div>
+                                   </mat-select>
+                                  </mat-form-field>
+                                </div>
+                             </div>
+
+
+
+                       </div>
+
+                       <div fxLayout="column" class="col2">
+                             <!--Gender-->
+                             <div fxLayout="row wrap" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                              <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+                                <mat-form-field>
+                                  <mat-label>{{'Choose Gender'|translate}}</mat-label>
+                                  <mat-select name="gender" formControlName="gender">
+                                    <mat-option value="male">{{'male'|translate}}</mat-option>
+                                    <mat-option value="female" selected>{{'female' |translate}}</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                           </div>
+
+                                <!--address-->
+                            <div fxLayout="row wrap" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                                  <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+                                     <mat-form-field class="full-wid mrgn-b-lg">
+                                                 <input matInput name="address" formControlName="address"
+                                                 placeholder="{{'Address'|translate}}" type="text">
+                                           </mat-form-field>
+                                  </div>
+                             </div>
+
+                                <!--phone-->
+                              <div fxLayout="row wrap" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                                  <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+                                     <mat-form-field class="full-wid mrgn-b-lg">
+                                                 <input matInput name="phone"  formControlName="phone"
+                                                 placeholder="{{'Phone'|translate}}" type="text">
+                                           </mat-form-field>
+                                  </div>
+                             </div>
+
+                                  <!--birthPlace-->
+                           <div fxLayout="row wrap" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                              <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+                                 <mat-form-field class="full-wid mrgn-b-lg">
+                                          <mat-label>{{'Choose BirthPlace' |translate}}</mat-label>
+                                             <mat-select formControlName="birthPlace">
+                                             <div *ngFor="let item of BirthPlace">
+                                              <mat-option value="{{item.name}}">{{item.name | translate}}</mat-option>
+                                            </div>
+                                             </mat-select>
+                                       </mat-form-field>
+                              </div>
+                           </div>
+
+                           <!--birthDate-->
+                          <div fxLayout="row wrap" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                                <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+                                   <mat-form-field class="full-wid mrgn-b-lg">
+                                    <mat-label>{{'Choose a BirthDate'|translate}}</mat-label>
+                                    <input matInput [matDatepicker]="picker"  formControlName="birthDate">
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                   </mat-form-field>
+                                </div>
+                           </div>
+
+                          <!--Job-->
+                            <div fxLayout="row wrap" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                              <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+                                 <mat-form-field class="full-wid mrgn-b-lg">
+                                             <input matInput name="job"  formControlName="job"
+                                             placeholder="{{ 'Job' | translate}}" type="text">
+                                       </mat-form-field>
+                              </div>
+                           </div>
+
+
+                       </div>
+
+
+                       <div fxLayout="column" class="col2">
+
+                          <!--Nationality-->
+                          <div fxLayout="row wrap" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                            <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+                               <mat-form-field class="full-wid mrgn-b-lg">
+                                <mat-label>{{'Choose Nationality' | translate}}</mat-label>
+                                <mat-select formControlName="nationality">
+                                  <div *ngFor="let item of BirthPlace">
+                                    <mat-option value="{{item.name}}">{{item.name  |translate}}</mat-option>
+                                  </div>
+                                 </mat-select>
+                               </mat-form-field>
+                            </div>
+                         </div>
+
+                          <!--Religion-->
+                          <div fxLayout="row wrap" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                            <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+                               <mat-form-field class="full-wid mrgn-b-lg">
+                                <mat-label>{{'Choose Religion'  | translate}}</mat-label>
+                                <mat-select formControlName="religion">
+                                  <mat-option value="muslim">{{'muslim' | translate}}</mat-option>
+                                  <mat-option value="cristain">{{'cristain' | translate}}</mat-option>
+                                </mat-select>
+                               </mat-form-field>
+                            </div>
+                         </div>
+
+                         <!--milirityStatus-->
+                            <div fxLayout="row wrap" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                              <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+                                <mat-form-field class="full-wid mrgn-b-lg">
+                                  <mat-label>{{'Choose milirityStatus'|translate}}</mat-label>
+                                  <mat-select formControlName="milirityStatus">
+                                    <mat-option value="delayed">{{'delayed' | translate}}</mat-option>
+                                    <mat-option value="temporary_exemption">{{'temporary_exemption' | translate}}</mat-option>
+                                    <mat-option value="exemption">{{'exemption' | translate}}</mat-option>
+                                    <mat-option value="none">{{'none' | translate}}</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                          </div>
+
+                        <!--university-->
+                          <div fxLayout="row wrap" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                              <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+                                <mat-form-field class="full-wid mrgn-b-lg">
+                                  <mat-label>{{'Choose University' | translate}}</mat-label>
+                                  <mat-select formControlName="university">
+                                    <div *ngFor="let item of Universties">
+                                    <mat-option value="{{item.Uniname}}" >{{item.Uniname | translate}}</mat-option>
+                                  </div>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                          </div>
+
+
+                        <!--collage-->
+                        <div fxLayout="row wrap" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                          <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+                            <mat-form-field class="full-wid mrgn-b-lg">
+                              <mat-label>{{'Choose college' | translate}}</mat-label>
+                              <mat-select formControlName="collage">
+                                <div *ngFor="let item of Colleges">
+                                  <mat-option value="{{item.name}}">{{item.name | translate}}</mat-option>
+                                </div>
+
+                              </mat-select>
+                            </mat-form-field>
+                          </div>
+                        </div>
+
+
+                        <!--department-->
+                        <div fxLayout="row wrap" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                          <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+                            <mat-form-field class="full-wid mrgn-b-lg">
+                                        <input matInput name="department" formControlName="department"
+                                        placeholder="{{'Department'|translate}}" type="text">
+                                  </mat-form-field>
+                          </div>
+                        </div>
+
+
+
+
+                       </div>
+
+
+                    </div>
+
+                    <div fxLayout="row" fxLayoutAlign="end">
+                      <button type="button" mat-button mat-raised-button color="primary" (click)="nextStep()" >{{'Next'|translate }} </button>
+                   </div>
+             </mat-tab>
+
+
+              <!--Upload Attachments-->
+              <mat-tab>
+                <ng-template mat-tab-label>
+                    {{'Upload Attachment'|translate}} &nbsp;
+                    <mat-icon class="example-tab-icon">attach_file</mat-icon>
+                </ng-template>
+                <div  class="flex-container" fxLayout="row" fxLayoutAlign="wrap" fxLayout.xs="column">
+                  <div fxLayout="column">
+                    <br/>
+                     <!--ssdFile-->
+                     <div fxLayout="row" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                        <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+
+                          <mat-label>{{'ssd File' | translate}}</mat-label>
+                          <input  name="file"  type="file" mat-input  (change)="SSDFile($event)" required />
+
+                        </div>
+
+
+                     </div>
+                      <br/>
+                      <!--Militray File-->
+                     <div fxLayout="row" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                      <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+                        <mat-label>{{'Malitiry File'|translate}}</mat-label>
+                        <input type="file" mat-input  (change)="MilirtyFile($event)"  required />
+                      </div>
+                   </div>
+
+                   <br />
+                   <!--photo-->
+                   <div fxLayout="row" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                     <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+
+                       <mat-label>{{'personal photo' | translate}}</mat-label>
+                       <input type="file" mat-input   (change)="Photo($event)" required />
+                     </div>
+                 </div>
+                  <br/>
+
+                   <!--birthCertificate-->
+                   <div fxLayout="row" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                     <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+
+                       <mat-label>{{'birthCertificate' | translate}}</mat-label>
+                       <input type="file" mat-input (change)="BirthCertificate($event)" required />
+                     </div>
+                   </div>
+                   <br/>
+
+                </div>
+
+                <div fxLayout="column">
+                        <br/>
+                    <!--approveAffairFile-->
+                    <div fxLayout="row" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                      <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+
+                        <mat-label>{{'approveAffairFile' | translate}}</mat-label>
+                        <input type="file" mat-input (change)="ApproveAffairFile($event)" required />
+                      </div>
+                    </div>
+                    <br/>
+
+                      <!--Download The Acknowledgement-->
+
+                      <div fxLayout="row" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                        <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+                          <mat-label>{{'Download The Acknledgment'|translate}}</mat-label>
+                          <br/>
+                          <a href="http://luxor.edu.eg:8098/StaticFiles/Resources/Files/Acknowledgement.pdf" target="_blank">Download</a>
+                        </div>
+                      </div>
+                      <br/>
+
+                     <!--acknowledmentFile-->
+                     <div fxLayout="row" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                      <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+
+                        <mat-label>{{'acknowledmentFile'|translate}}</mat-label>
+                        <input type="file" mat-input  (change)="AcknowledmentFile($event)" required />
+                      </div>
+                    </div>
+                    <br/>
+
+
+                     <!--acknowledmentJobFile-->
+                     <div fxLayout="row" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                      <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+
+                        <mat-label>{{'acknowledmentJobFile' | translate}}</mat-label>
+                        <input type="file" mat-input  (change)="AcknowledmentJobFile($event)" />
+                      </div>
+                    </div>
+                </div>
+
+              </div>
+
+              <div fxLayout="row" fxLayoutAlign="space-between">
+
+                <div fxLayout="column" class="registerbtn" fxLayoutAlign="start">
+                <button mat-raised-button color="primary" type="button" (click)="previousStep()">{{'Previous'|translate }}</button>
+                 </div>
+                <div fxLayout="column" class="registerbtn" fxLayoutAlign="end">
+                  <button mat-raised-button color="primary" type="submit" style="float: right;">{{'Next'|translate}}</button>
+               </div>
+             </div>
+
+              </mat-tab>
+
+
+            </mat-tab-group>
+          </form>
+       </div>
+    </div>
+ </div>
+</body>

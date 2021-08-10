@@ -1,0 +1,112 @@
+
+<body>
+  <div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left" @slideLeft>
+          <img src="assets/images/PostGraduteHat.png" class="animatedimg"/>
+          <h3>{{'Welcome'|translate}}</h3>
+          <p>{{'You Can Register for PostGradutes Program Now'|translate}}!</p>
+           <h4>{{"Master Register"|translate}}</h4>
+            <img src="assets/images/logo.png" width="100" height="150" />
+
+        </div>
+        <div class="col-md-9 register-right" @slideRight>
+          <form class="example-form"  [formGroup]="signUpForm" (ngSubmit)="onSubmit()" >
+            <mat-tab-group  mat-align-tabs="center">
+              <!--General Information-->
+              <mat-tab disabled>
+                <ng-template mat-tab-label>
+                    {{'General Information'|translate}}  &nbsp;
+                 </ng-template>
+                 <div  class="flex-container" fxLayout="row" fxLayoutAlign="center" fxLayout.xs="column">
+
+                <!--Master Type-->
+                 <div fxLayout="row wrap" fxLayoutAlign="center"  fxLayout.xs="column">
+                  <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+                    <mat-form-field>
+                      <mat-label>{{'Master Type'|translate}}</mat-label>
+                      <mat-select name="MasterType" formControlName="MasterType" required>
+                        <div *ngFor="let item of MasterType">
+                        <mat-option value="{{item.id}}">{{item.name | translate}}</mat-option>
+                      </div>
+                     </mat-select>
+                    </mat-form-field>
+                  </div>
+               </div>
+            </div>
+
+               <div  class="flex-container" fxLayout="row" fxLayoutAlign="space-between center" fxLayout.xs="column" >
+
+                <div fxLayout="column" style="margin-left: 15%;">
+             <!--College Grade-->
+             <div fxLayout="row wrap" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+              <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+                <mat-form-field>
+                  <mat-label>{{'College Grade'|translate}}</mat-label>
+                  <mat-select name="CollageGrade" formControlName="CollageGrade" required>
+                    <mat-option value="A">{{"A" | translate}}</mat-option>
+                    <mat-option value="B">{{"B" | translate}}</mat-option>
+                    <mat-option value="C">{{"C" | translate}}</mat-option>
+                    <mat-option value="D">{{"D" | translate}}</mat-option>
+                 </mat-select>
+                </mat-form-field>
+              </div>
+             </div>
+
+           <!--GradutePrencetage-->
+           <div fxLayout="row wrap" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+            <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+               <mat-form-field class="full-wid mrgn-b-lg">
+                     <input matInput name="GradutePrencetage" formControlName="GradutePrencetage"
+                     placeholder="{{'Gradute Percentage'|translate}}" type="text" required>
+               </mat-form-field>
+            </div>
+           </div>
+
+            <!--Gradute Year-->
+            <div fxLayout="row wrap" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+              <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+                <mat-form-field>
+                  <mat-label>{{'Gradute Year'|translate}}</mat-label>
+                  <mat-select name="GraduteYear" formControlName="graduteYear" required>
+                    <div *ngFor="let item of years">
+                      <mat-option value="{{item}}">{{item}}</mat-option>
+                    </div>
+                 </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+           <div fxLayout="column" style="margin-left: 15%;">
+           <!--GraduteCertificate-->
+           <div fxLayout="row" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+            <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+              <mat-label>{{'CollageCertificateFile'|translate}}</mat-label>
+              <input  name="CollageCertificateFile"  type="file" mat-input (change)="CollageCertificateFile($event)" required />
+            </div>
+         </div>
+
+            <!--StatementGradesFile-->
+            <div fxLayout="row" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+              <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" fxFlex.gt-md="50">
+                <mat-label>{{'StatementGradesFile'|translate}}</mat-label>
+                <input  name="StatementGradesFile"  type="file" mat-input (change)="StatementGradesFile($event)" required />
+              </div>
+           </div>
+          </div>
+
+             </div>
+             <div fxLayout="row" fxLayoutAlign="center"  fxLayout.xs="column">
+              <button mat-raised-button color="primary" type="submit" [disabled]="!signUpForm.valid">{{'Register' |translate}}</button>
+             </div>
+
+             </mat-tab>
+
+
+            </mat-tab-group>
+          </form>
+       </div>
+    </div>
+ </div>
+</body>

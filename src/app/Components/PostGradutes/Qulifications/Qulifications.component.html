@@ -1,0 +1,113 @@
+
+<body>
+  <div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left" @slideLeft>
+            <img src="assets/images/PostGraduteHat.png" class="animatedimg"/>
+            <h3>{{'Welcome' | translate}}</h3>
+            <p>{{'You Can Register for PostGradutes Program Now' | translate}}</p>
+            <img src="assets/images/logo.png" width="100" height="150" />
+            <br/>
+            <br/>
+            <button mat-mini-fab color="primary" aria-label="Example icon button with a heart icon" [routerLink]="['/PostGraduteLogin']">
+              <mat-icon>keyboard_arrow_left</mat-icon>
+            </button>
+        </div>
+        <div class="col-md-9 register-right" @slideRight>
+          <form class="example-form">
+            <mat-tab-group  mat-align-tabs="center" [selectedIndex]="selectedIndex">
+              <!--General Information-->
+              <mat-tab disabled>
+                <ng-template mat-tab-label>
+                    {{'QulificationType'|translate}}  &nbsp;
+                 </ng-template>
+                 <div  class="flex-container" fxLayout="row" fxLayoutAlign="wrap" fxLayout.xs="column">
+                  <div fxLayout="column">
+                    <div fxLayout="row wrap" fxLayoutAlign="space-between center"  fxLayout.xs="column">
+                     <div class="choosecontainer">
+                      <img src="assets/images/archologylogo.jpg" width="150" height="150"/>
+                      <h3><a (click)="getArchCondition(0)">{{'DiplomaProgram' | translate}}</a></h3>
+                      <h3><a (click)="getArchCondition(1)">{{'MasterProgram' | translate}}</a></h3>
+                      <h3><a (click)="getArchCondition(3)">{{'PhdProgram' | translate}}</a></h3>
+                     </div>
+
+                    </div>
+                  </div>
+
+                  <div fxLayout="column" class="col2">
+                    <div class="choosecontainer">
+                      <img src="assets/images/fineartlogo.png" width="150" height="150"/>
+                      <h3><a  (click)="getFineartConditions(0)">{{'DiplomaProgram' | translate}}</a></h3>
+                      <h3><a (click)="getFineartConditions(1)">{{'MasterProgram' | translate}}</a></h3>
+                      <h3><a (click)="getFineartConditions(3)">{{'PhdProgram' | translate}}</a></h3>
+                     </div>
+                  </div>
+
+                  <div fxLayout="column" class="col2">
+                    <div class="choosecontainer">
+                      <img src="assets/images/toursitlogo.jpg" width="150" height="150"/>
+                      <h3><a  (click)="toursitcondition(0)">{{'DiplomaProgram' | translate}}</a></h3>
+                      <h3><a (click)="toursitcondition(1)">{{'MasterProgram' | translate}}</a></h3>
+                      <h3><a (click)="toursitcondition(3)">{{'PhdProgram' | translate}}</a></h3>
+                     </div>
+                  </div>
+                 </div>
+             </mat-tab>
+
+
+              <!--Upload Attachments-->
+              <mat-tab disabled>
+                <ng-template mat-tab-label>
+                   {{'PlociesandConditions'|translate}} &nbsp;
+
+                </ng-template>
+               <!--Agricology Conditions-->
+               <mat-icon  style="background-color:#3f51b5; color: white; cursor: pointer;" (click)="back()">keyboard_arrow_left</mat-icon>
+
+               <div  class="flex-container" fxLayout="row" fxLayoutAlign="wrap" fxLayout.xs="column" id="archcondition">
+
+
+                <mat-list style="text-align: right; margin-top: 5%;">
+
+                  <mat-list-item  *ngIf="Data.cd1"  style="text-align: right;">
+                    <div mat-line>{{Data.cd1}}</div>
+                    <mat-icon mat-list-icon color="primary">check_circle</mat-icon>
+                  </mat-list-item>
+                  <mat-divider></mat-divider>
+                  <mat-list-item  *ngIf="Data.cd2"  style="text-align: right;">
+                      <div mat-line>{{Data.cd2}}</div>
+                      <mat-icon mat-list-icon color="primary">check_circle</mat-icon>
+                  </mat-list-item>
+                  <mat-divider></mat-divider>
+                  <mat-list-item *ngIf="Data.cd3"  style="text-align: right;">
+                       <div mat-line>{{Data.cd3}}</div>
+                       <mat-icon mat-list-icon color="primary">check_circle</mat-icon>
+                  </mat-list-item>
+                  <mat-divider></mat-divider>
+                  <mat-list-item *ngIf="Data.cd4"  style="text-align: right;">
+                       <div mat-line>{{Data.cd4}}</div>
+                       <mat-icon mat-list-icon color="primary">check_circle</mat-icon>
+                  </mat-list-item>
+
+                </mat-list>
+               </div>
+
+               <div  class="flex-container" fxLayout="row" fxLayoutAlign="space-between" fxLayout.xs="column" id="archcondition" style="margin-top: 5%; text-align: right;">
+
+                <div fxLayout="column">
+                  <button [disabled]="!checked" mat-raised-button color="primary" [routerLink]="['/PostGraduteRegister']">{{'RegisterNow'|translate}}</button>
+                </div>
+                <div fxLayout="column">
+                  <mat-checkbox class="example-margin" (change)='checkedme()' >{{'AgreeConditions'|translate}}</mat-checkbox>
+                 </div>
+
+               </div>
+              </mat-tab>
+
+
+            </mat-tab-group>
+          </form>
+       </div>
+    </div>
+ </div>
+</body>

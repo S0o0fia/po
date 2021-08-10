@@ -1,0 +1,180 @@
+<style>
+    *{
+      direction:  rtl !important;
+    }
+
+    body{
+     width: 750px !important;
+
+    }
+</style>
+<body>
+<mat-icon color="warn" [mat-dialog-close]="true" style="cursor: pointer;">close</mat-icon>
+<h2 mat-dialog-title style="text-align: center !important; font-weight: bolder;">{{'Request Details' | translate}}</h2>
+<mat-dialog-content style=" text-align: right !important;">
+
+    <!--Master Grade-->
+    <div class="row" *ngIf="data.Data.masterGrade != null">
+      <div class="col-sm-5 text-secondary">
+        {{'Master Grade' | translate}}
+      </div>
+
+      <div class="col-sm-3">
+        <h3 class="mb-0">{{data.Data.masterGrade | translate}}</h3>
+      </div>
+
+    </div>
+
+    <!--College Grade-->
+    <div class="row" *ngIf="data.Data.collageGrade != null">
+      <div class="col-sm-5 text-secondary">
+        {{'College Grade' | translate}}
+      </div>
+
+      <div class="col-sm-3">
+        <h3 class="mb-0">{{data.Data.collageGrade | translate}}</h3>
+      </div>
+
+    </div>
+    <hr>
+
+     <!--Master Year-->
+     <div class="row" *ngIf="data.Data.masterYear != null">
+      <div class="col-sm-5 text-secondary">
+        {{'Master Year' | translate}}
+      </div>
+
+      <div class="col-sm-3">
+        <h3 class="mb-0">{{data.Data.masterYear}}</h3>
+      </div>
+
+    </div>
+
+     <!--Gradute Year-->
+     <div class="row" *ngIf="data.Data.graduteYear != null">
+      <div class="col-sm-5 text-secondary">
+        {{'Gradute Year' | translate}}
+      </div>
+
+      <div class="col-sm-3">
+        <h3 class="mb-0">{{data.Data.graduteYear}}</h3>
+      </div>
+
+    </div>
+    <hr>
+
+    <!--SSD Number-->
+    <div class="row">
+      <div class="col-sm-5 text-secondary">
+        {{'SSD Number' | translate}}
+      </div>
+
+      <div class="col-sm-3">
+        <h3 class="mb-0">{{data.PostGradute.ssd}}</h3>
+      </div>
+    </div>
+    <hr>
+
+    <!--milirityStatus-->
+    <div class="row">
+      <div class="col-sm-5 text-secondary">
+        {{'milirityStatus' | translate}}
+      </div>
+
+      <div class="col-sm-3">
+        <h3 class="mb-0">{{data.PostGradute.milirityStatus | translate}}</h3>
+      </div>
+    </div>
+    <hr>
+
+
+    <!--SSD Photo-->
+    <div class="row">
+      <div class="col-sm-5 text-secondary">
+        {{'ssd File' | translate}}
+      </div>
+
+      <div class="col-sm-3">
+        <a  href = "{{baseUrl}}/{{data.PostGradute.ssdFile}}" target="_blank" class="mb-0">{{"Open Photo" | translate}}</a>
+      </div>
+    </div>
+    <hr>
+
+     <!--MasterCertificate Photo-->
+     <div class="row" *ngIf="data.Data.masterCertificateFile != null">
+      <div class="col-sm-5 text-secondary">
+        {{'MasterCertificateFile' | translate}}
+      </div>
+
+      <div class="col-sm-3">
+        <a  href = "{{baseUrl}}/{{data.Data.masterCertificateFile}}" target="_blank" class="mb-0">{{"Open Photo" | translate}}</a>
+      </div>
+    </div>
+
+     <!--collageCertificateFile Photo-->
+     <div class="row" *ngIf="data.Data.collageCertificateFile != null">
+      <div class="col-sm-5 text-secondary">
+        {{'CollageCertificateFile' | translate}}
+      </div>
+
+      <div class="col-sm-3">
+        <a  href = "{{baseUrl}}/{{data.Data.collageCertificateFile}}" target="_blank" class="mb-0">{{"Open Photo" | translate}}</a>
+      </div>
+    </div>
+
+    <hr>
+
+
+     <!--statementGradesFile Photo-->
+     <div class="row" *ngIf="data.Data.statementGradesFile != null">
+      <div class="col-sm-5 text-secondary">
+        {{'StatementGradesFile' | translate}}
+      </div>
+
+      <div class="col-sm-3">
+        <a  href = "{{baseUrl}}/{{data.Data.statementGradesFile}}" target="_blank" class="mb-0">{{"Open Photo" | translate}}</a>
+      </div>
+
+    </div>
+    <hr  *ngIf="data.Data.statementGradesFile != null"/>
+
+     <!--Militry Photo-->
+     <div class="row">
+      <div class="col-sm-5 text-secondary">
+        {{'Malitiry File' | translate}}
+      </div>
+
+      <div class="col-sm-3">
+        <a  href = "{{baseUrl}}/{{data.PostGradute.milirtyFile}}" target="_blank" class="mb-0">{{"Open Photo" | translate}}</a>
+      </div>
+    </div>
+    <hr>
+
+     <!--Bith Cert Photo-->
+     <div class="row">
+      <div class="col-sm-5 text-secondary">
+        {{'birthCertificate' | translate}}
+      </div>
+
+      <div class="col-sm-3">
+        <a  href = "{{baseUrl}}/{{data.PostGradute.birthCertificate}}" target="_blank" class="mb-0">{{"Open Photo" | translate}}</a>
+      </div>
+    </div>
+    <hr>
+
+     <!--Ack Photo-->
+     <div class="row">
+      <div class="col-sm-5 text-secondary">
+        {{'acknowledmentFile' | translate}}
+      </div>
+
+      <div class="col-sm-3">
+        <a  href = "{{baseUrl}}/{{data.PostGradute.acknowledmentFile}}" target="_blank" class="mb-0">{{"Open Photo" | translate}}</a>
+      </div>
+    </div>
+    <hr>
+
+</mat-dialog-content>
+
+
+</body>

@@ -1,0 +1,237 @@
+<body>
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="main-breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item" style="cursor: pointer;" (click)="logout()"> <mat-icon color="primary">logout</mat-icon> </li>
+      </ol>
+    </nav>
+
+  <div class="container">
+    <div class="main-body">
+          <div class="row gutters-sm">
+            <div class="col-md-4 mt-3" @slideLeft>
+              <mat-card>
+                <mat-card-header style="justify-content: center; ">
+
+                  <mat-card-title style="font-weight: bolder;">  {{'General Information'|translate}}  &nbsp;</mat-card-title>
+
+                </mat-card-header>
+                <mat-card-content>
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img [src]= "createProfilePath(PostGradute.photo)"  alt="Admin" class="rounded-circle" width="150" height="150">
+                    <div class="mt-3">
+                      <h3>{{PostGradute.namear}}</h3>
+                      <h3>{{PostGradute.nameen}}</h3>
+                      <p class="text-secondary mb-1"> {{PostGradute.job}}</p>
+                      <p class="text-secondary mb-1">{{PostGradute.university | translate}} </p>
+                      <p class="text-secondary mb-1"> {{PostGradute.collage | translate}} </p>
+                      <p class="text-secondary mb-1"> {{PostGradute.phone}} </p>
+                      <p class="text-secondary mb-1"> {{PostGradute.address}}</p>
+                    </div>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+
+            </div>
+            <div class="col-md-8 mt-3" @slideRight>
+              <mat-card class="example-card" *ngIf="PostGraduteDiploma.length > 0">
+                <mat-card-header style="justify-content: center; font-weight: bolder;">
+                  <mat-card-title style="font-weight: bolder;">{{'DiplomaProgram' | translate}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <!--Diploma-->
+                  <div class="row">
+                    <mat-card-content style="overflow-x:auto;">
+                      <table  class="table table-hover">
+                      <thead class="thead-dark" dir="rtl">
+                        <tr>
+                          <th>{{'Diploma Type' | translate}}</th>
+                          <th>{{'Register Date' | translate}}</th>
+                          <th>{{'requestPassed' | translate}}</th>
+                          <th>{{'matchingpaperPassed' | translate}}</th>
+                          <th>{{'interviewPassed' | translate}}</th>
+                          <th>{{'expancesDone' | translate}}</th>
+                          <th>{{'accepted' | translate}}</th>
+                          <th>{{'Print The Request' | translate}}</th>
+                          <th>{{'Request Details' | translate}}</th>
+                        </tr>
+                      </thead>
+                      <tbody  *ngFor="let item of PostGraduteDiploma ; let i = index" dir="rtl">
+
+                         <tr>
+                           <td>{{item.diplomaType | translate}}</td>
+                           <td colspan="1">{{item.registerDate | date}}</td>
+                           <td>
+                             <span *ngIf="item.requestAccepted == -1">{{'waiting'|translate}}</span>
+                             <span *ngIf="item.requestAccepted == 0">{{'Done'|translate}}</span>
+                             <span *ngIf="item.requestAccepted == 1">{{'Refused'|translate}}</span>
+                           </td>
+                           <td>
+                            <span *ngIf="item.matchingPaper == -1">{{'waiting'|translate}}</span>
+                            <span *ngIf="item.matchingPaper == 0">{{'Done'|translate}}</span>
+                            <span *ngIf="item.matchingPaper == 1">{{'Refused'|translate}}</span>
+                          </td>
+                          <td>
+                            <span *ngIf="item.interviewPassed == -1">{{'waiting'|translate}}</span>
+                            <span *ngIf="item.interviewPassed == 0">{{'Done'|translate}}</span>
+                            <span *ngIf="item.interviewPassed == 1">{{'Refused'|translate}}</span>
+                          </td>
+                          <td>
+                            <span *ngIf="item.expancesDone == -1">{{'waiting'|translate}}</span>
+                            <span *ngIf="item.expancesDone == 0">{{'Done'|translate}}</span>
+                            <span *ngIf="item.expancesDone == 1">{{'Refused'|translate}}</span>
+                          </td>
+                          <td>
+                            <span *ngIf="item.accepted == -1">{{'waiting'|translate}}</span>
+                            <span *ngIf="item.accepted == 0">{{'Done'|translate}}</span>
+                            <span *ngIf="item.accepted == 1">{{'Refused'|translate}}</span>
+                          </td>
+                          <td>
+                            <button   mat-raised-button color="primary">{{'Print' | translate}}</button>
+                          </td>
+                          <td>
+                            <mat-icon style="border-radius: 20px; cursor: pointer; background-color:#292E33; color:white" (click) ="openDialog(i , 1)">keyboard_arrow_left</mat-icon>
+                          </td>
+                         </tr>
+                      </tbody>
+                    </table>
+                    </mat-card-content>
+                  </div>
+                  <hr>
+                </mat-card-content>
+              </mat-card>
+             <br/>
+              <mat-card class="example-card" *ngIf="PostGraduteMaster.length > 0">
+                <mat-card-header style="justify-content: center; font-weight: bolder;">
+                  <mat-card-title style="font-weight: bolder;">{{'MasterProgram' | translate}}</mat-card-title>
+                </mat-card-header>
+                <!--Master-->
+                <mat-card-content>
+                  <div class="row">
+                    <mat-card-content style="overflow-x:auto;">
+                      <table  class="table table-hover">
+                      <thead class="thead-dark" dir="rtl">
+                        <tr>
+                          <th>{{'Master Type' | translate}}</th>
+                          <th>{{'Register Date' | translate}}</th>
+                          <th>{{'requestPassed' | translate}}</th>
+                          <th>{{'matchingpaperPassed' | translate}}</th>
+                          <th>{{'interviewPassed' | translate}}</th>
+                          <th>{{'expancesDone' | translate}}</th>
+                          <th>{{'accepted' | translate}}</th>
+                          <th>{{'Print The Request' | translate}}</th>
+                          <th>{{'Request Details' | translate}}</th>
+                        </tr>
+                      </thead>
+                      <tbody  *ngFor="let item of PostGraduteMaster ; let i = index" dir="rtl">
+
+                         <tr>
+                           <td>{{item.masterType | translate}}</td>
+                           <td colspan="1">{{item.registerDate | date}}</td>
+                           <td>
+                             <span *ngIf="item.requestAccepted == -1">{{'waiting'|translate}}</span>
+                             <span *ngIf="item.requestAccepted == 0">{{'Done'|translate}}</span>
+                             <span *ngIf="item.requestAccepted == 1">{{'Refused'|translate}}</span>
+                           </td>
+                           <td>
+                            <span *ngIf="item.matchingPaper == -1">{{'waiting'|translate}}</span>
+                            <span *ngIf="item.matchingPaper == 0">{{'Done'|translate}}</span>
+                            <span *ngIf="item.matchingPaper == 1">{{'Refused'|translate}}</span>
+                          </td>
+                          <td>
+                            <span *ngIf="item.interviewPassed == -1">{{'waiting'|translate}}</span>
+                            <span *ngIf="item.interviewPassed == 0">{{'Done'|translate}}</span>
+                            <span *ngIf="item.interviewPassed == 1">{{'Refused'|translate}}</span>
+                          </td>
+                          <td>
+                            <span *ngIf="item.expancesDone == -1">{{'waiting'|translate}}</span>
+                            <span *ngIf="item.expancesDone == 0">{{'Done'|translate}}</span>
+                            <span *ngIf="item.expancesDone == 1">{{'Refused'|translate}}</span>
+                          </td>
+                          <td>
+                            <span *ngIf="item.accepted == -1">{{'waiting'|translate}}</span>
+                            <span *ngIf="item.accepted == 0">{{'Done'|translate}}</span>
+                            <span *ngIf="item.accepted == 1">{{'Refused'|translate}}</span>
+                          </td>
+                          <td>
+                            <button   mat-raised-button color="primary">{{'Print' | translate}}</button>
+                          </td>
+                          <td>
+                            <mat-icon style="border-radius: 20px; cursor: pointer; background-color:#292E33; color:white" (click) ="openDialog(i , 2)">keyboard_arrow_left</mat-icon>
+                          </td>
+                         </tr>
+                      </tbody>
+                    </table>
+                    </mat-card-content>
+                  </div>
+                  <hr>
+                </mat-card-content>
+              </mat-card>
+               <br/>
+              <mat-card class="example-card" *ngIf="PostGradutePhd.length > 0">
+                <mat-card-header style="justify-content: center; font-weight: bolder;">
+                  <mat-card-title style="font-weight: bolder;">{{'PhdProgram' | translate}}</mat-card-title>
+                </mat-card-header>
+                <!--Phd-->
+                <mat-card-content style="overflow-x:auto;">
+                  <table  class="table table-hover">
+                  <thead class="thead-dark" dir="rtl">
+                    <tr>
+                      <th>{{'Phd Type' | translate}}</th>
+                      <th>{{'Register Date' | translate}}</th>
+                      <th>{{'requestPassed' | translate}}</th>
+                      <th>{{'matchingpaperPassed' | translate}}</th>
+                      <th>{{'interviewPassed' | translate}}</th>
+                      <th>{{'expancesDone' | translate}}</th>
+                      <th>{{'accepted' | translate}}</th>
+                      <th>{{'Print The Request' | translate}}</th>
+                      <th>{{'Request Details' | translate}}</th>
+                    </tr>
+                  </thead>
+                  <tbody  *ngFor="let item of PostGradutePhd ; let i = index" dir="rtl">
+
+                     <tr>
+                       <td>{{item.phdType | translate}}</td>
+                       <td colspan="1">{{item.registerDate | date}}</td>
+                       <td>
+                         <span *ngIf="item.requestAccepted == -1">{{'waiting'|translate}}</span>
+                         <span *ngIf="item.requestAccepted == 0">{{'Done'|translate}}</span>
+                         <span *ngIf="item.requestAccepted == 1">{{'Refused'|translate}}</span>
+                       </td>
+                       <td>
+                        <span *ngIf="item.matchingPaper == -1">{{'waiting'|translate}}</span>
+                        <span *ngIf="item.matchingPaper == 0">{{'Done'|translate}}</span>
+                        <span *ngIf="item.matchingPaper == 1">{{'Refused'|translate}}</span>
+                      </td>
+                      <td>
+                        <span *ngIf="item.interviewPassed == -1">{{'waiting'|translate}}</span>
+                        <span *ngIf="item.interviewPassed == 0">{{'Done'|translate}}</span>
+                        <span *ngIf="item.interviewPassed == 1">{{'Refused'|translate}}</span>
+                      </td>
+                      <td>
+                        <span *ngIf="item.expancesDone == -1">{{'waiting'|translate}}</span>
+                        <span *ngIf="item.expancesDone == 0">{{'Done'|translate}}</span>
+                        <span *ngIf="item.expancesDone == 1">{{'Refused'|translate}}</span>
+                      </td>
+                      <td>
+                        <span *ngIf="item.accepted == -1">{{'waiting'|translate}}</span>
+                        <span *ngIf="item.accepted == 0">{{'Done'|translate}}</span>
+                        <span *ngIf="item.accepted == 1">{{'Refused'|translate}}</span>
+                      </td>
+                      <td>
+                        <button   mat-raised-button color="primary" >{{'Print' | translate}}</button>
+                      </td>
+                      <td>
+                        <mat-icon style="border-radius: 20px; cursor: pointer; background-color:#292E33; color:white" (click) ="openDialog(i , 3)">keyboard_arrow_left</mat-icon>
+                      </td>
+                     </tr>
+                  </tbody>
+                </table>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+
+        </div>
+    </div>
+</body>

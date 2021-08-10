@@ -1,0 +1,49 @@
+<body style="background-image: url('assets/images/LoginBackground.jpg');">
+ <div class="container" @slideRight>
+    <div class="d-flex justify-content-center h-100">
+      <div class="card">
+        <div class="card-header">
+          <br/>
+          <h1 class="card-title" style="text-align: center;">{{'Login to PostGradute System' | translate}}</h1>
+          <div class="d-flex justify-content-end social_icon">
+            <span><img src="assets/images/loginlogo3.jpg" width="55" height="55" style="border-radius:10px; margin-top: 5px;"></span>
+            <span><img src="assets/images/loginlogo.jpg" width="55" height="55" style="border-radius:10px; margin-top: 5px;"></span>
+            <span><img src="assets/images/loginlogo2.jpg" width="55" height="55" style="border-radius:10px; margin-top: 5px;"></span>
+          </div>
+        </div>
+        <div class="card-body" >
+          <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+              </div>
+              <input mat-input formControlName="Email" type="text" class="form-control" placeholder="{{'Email' | translate}}">
+
+            </div>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-key"></i></span>
+              </div>
+              <input mat-input formControlName="Paasword" type="password" class="form-control" placeholder="{{'Password' | translate}}">
+            </div>
+            <br/>
+            <div class="form-group" style="text-align:center;">
+              <input type="submit"  value="{{'Login'|translate}}" class="btn login_btn">
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-center links">
+           <a href="/Qulifications">{{'Sign Up'| translate}}</a>
+           &nbsp;   &nbsp;
+           <span style="color: black; font-size: medium; font-weight: bold;">  {{"Don't have an account?"| translate}}</span>
+          </div>
+          <!-- <div class="d-flex justify-content-center">
+            <a href="#">Forgot your password?</a>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>

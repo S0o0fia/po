@@ -1,0 +1,113 @@
+[
+  {
+     "id": 1 ,
+    "Uniname" : "Ain Shams University"
+  },
+  {
+    "id": 2 ,
+    "Uniname" : "Al-Azhar University"
+  },
+  {
+    "id": 3 ,
+    "Uniname" : "Alexandria University"
+  },
+  {
+    "id": 4 ,
+    "Uniname" : "Assiut University"
+  },
+  {
+    "id": 5 ,
+    "Uniname" : "Aswan University"
+  },
+  {
+    "id": 6 ,
+    "Uniname" : "Banha University"
+  },
+  {
+    "id": 7 ,
+    "Uniname" : "Beni-Suef University"
+  },
+  {
+    "id": 8 ,
+    "Uniname" : "Cairo University"
+  },
+  {
+    "id": 9 ,
+    "Uniname" : "Damanhour University"
+  },
+  {
+    "id": 10 ,
+    "Uniname" : "Damietta University"
+  },
+
+  {
+    "id": 12 ,
+    "Uniname" : "Fayoum University"
+  },
+  {
+    "id": 13 ,
+    "Uniname" : "Helwan University"
+  },
+
+  {
+    "id": 15 ,
+    "Uniname" : "Kafrelsheikh University"
+  },
+  {
+    "id": 16 ,
+    "Uniname" : "Luxor University"
+  },
+  {
+    "id": 17 ,
+    "Uniname" : "Mansoura University"
+  },
+
+  {
+    "id": 19 ,
+    "Uniname" : "Minia University"
+  },
+  {
+    "id": 20 ,
+    "Uniname" : "Minufiya University"
+  },
+  {
+    "id": 21 ,
+    "Uniname" : "Port Said University"
+  },
+  {
+    "id": 22 ,
+    "Uniname" : "Sadat Academy for Management Sciences"
+  },
+  {
+    "id": 23 ,
+    "Uniname" : "Sohag University"
+  },
+  {
+    "id": 24 ,
+    "Uniname" : "South Valley University"
+  },
+  {
+    "id": 25 ,
+    "Uniname" : "Suez Canal University"
+  },
+  {
+    "id": 26 ,
+    "Uniname" : "Suez University"
+  },
+  {
+    "id": 27 ,
+    "Uniname" : "Tanta University"
+  },
+  {
+    "id": 28 ,
+    "Uniname" : "University of Sadat City"
+  },
+  {
+    "id": 29 ,
+    "Uniname" : "University of Science and Technology at Zewail City"
+  },
+  {
+    "id": 30 ,
+    "Uniname" : "Zagazig University"
+  }
+]
